@@ -1,0 +1,349 @@
+// Обнуление
+@import "zeroing.scss";
+
+html,
+body {
+	min-height: 100%;
+	background: url("../img/main_background.jpg") 0 0/cover no-repeat fixed;
+}
+.wrapper {
+	min-height: 100%;
+}
+.main-container {
+	width: 550px;
+	min-height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.card {
+	width: 450px;
+	height: 285px;
+	position: absolute;
+	top: 25px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+}
+
+.card__front,
+.card__back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 25px;
+	transition: all 0.6s ease-in;
+	backface-visibility: hidden;
+	background: url("../img/fon.jpg");
+	box-shadow: 0px 20px 35px #3f425f;
+}
+.card .card__back{
+    transform: rotateY(-180deg);
+}
+
+// 
+.card.to-back .card__front{
+    transform: rotateY(180deg);
+}
+.card.to-back .card__back{
+    transform: rotateY(0deg);
+}
+.card__type {
+	position: absolute;
+	top: 25px;
+	left: 40px;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #fff;
+}
+.card__bank-name {
+	position: absolute;
+	top: 25px;
+	right: 40px;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #fff;
+	&_back {
+		top: auto;
+		bottom: 25px;
+	}
+}
+.card__chip {
+	position: absolute;
+	top: 60px;
+	left: 25px;
+	& img {
+		width: 100px;
+		height: 65px;
+	}
+	&::before {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		content: "";
+		height: 0;
+		width: 0;
+		border-top: 5px solid transparent;
+		border-right: 8px solid #fff;
+		border-bottom: 5px solid transparent;
+	}
+}
+.card__number {
+	display: flex;
+	justify-content: space-between;
+	margin: 150px 40px;
+	& span {
+		font-size: 30px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #fff;
+	}
+}
+.card__valid-thru {
+	position: absolute;
+	bottom: 50px;
+	right: 70px;
+	font-size: 20px;
+	& span {
+		color: #fff;
+	}
+}
+.card__line {
+	position: absolute;
+	top: 80px;
+	left: 40px;
+	right: 40px;
+	width: 370px;
+	height: 50px;
+	background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) 20px, rgba(235, 125, 82, 0.8) 20px, rgba(235, 125, 82, 0.8) 21px);
+}
+.card__cvc {
+	position: absolute;
+	top: 50%;
+	left: 15px;
+	transform: translateY(-50%);
+	font-size: 18px;
+}
+
+
+///////////////////////////////////////////////////
+
+.form {
+	position: absolute;
+	top: 175px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 540px;
+	border-radius: 20px;
+	background: url("../img/form_fon.jpg");
+	box-shadow: 0px 20px 35px #3f425f;
+	padding: 200px 20px 30px;
+	&::before {
+		content: "";
+		background: url("../img/pngegg.png") 0 0/auto 100% no-repeat;
+		position: absolute;
+		bottom: -80px;
+		left: -90px;
+		width: 250px;
+		height: 250px;
+		z-index: 3;
+		transform: rotate(-155deg);
+		pointer-events: none;
+		//animation: crystal 20s linear infinite;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.2) url("../img/loading.gif") center / 60px no-repeat;
+		width: 100%;
+		height: 100%;
+		border-radius: 20px;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s ease 0s;
+	}
+	&._sending::after {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.form__container {
+	width: 100%;
+}
+.form__card-number {
+	display: block;
+	width: 20.3rem;
+	border: #3f425f solid 2px;
+	border-radius: 9px;
+	font-size: 2rem;
+	text-align: center;
+	padding: 0.5rem 1.25rem;
+	margin: 0 auto;
+}
+.form_flex {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	margin: 50px 0 0 0;
+}
+.form__card-valid-thru{
+	display: flex;
+	& span {
+		font-size: 2rem;
+		margin: 0.7rem 0.5rem 0;
+	}
+}
+.form__card-valid-thru_month,
+.form__card-valid-thru_year {
+	display: block;
+	width: 6rem;
+	text-align: center;
+	border: #3f425f solid 2px;
+	border-radius: 9px;
+	font-size: 2rem;
+	padding: 0.5rem 1.25rem;
+}
+.form__card-cvc {
+	display: block;
+	width: 9rem;
+	text-align: center;
+	border: #3f425f solid 2px;
+	border-radius: 9px;
+	font-size: 2rem;
+	padding: 0.5rem 1.25rem;
+}
+.form__button {
+	display: block;
+	position: relative;
+	padding: 7px 13px 7px 18px;
+	border-radius: 9px;
+	text-transform: uppercase;
+	background: url("../img/fon.jpg");
+	font-size: 28px;
+	letter-spacing: 5px;
+	color: #fff;
+	margin: 80px auto 0;
+	transition: all 0.3s ease 0s;
+	&:hover {
+		box-shadow: 0 0 25px #3f425f;
+		padding: 7px 18px 7px 23px;
+	}
+	&:before {
+		content: '';
+		background-color: rgb(103, 107, 110);
+		border-radius: 50%;
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 50%;
+		width: 1px;
+		height: 1px;
+		z-index: -1;
+	}
+	&:focus {
+		&:before {
+		  animation: effect_dylan 1s ease-out;
+		}
+	  }
+}
+
+
+////////////////////////////////////////////////////////////////////
+
+input {
+	transition: all 0.5s ease 0s;
+	background: none;
+}
+input:focus {
+	box-shadow: 0 0 25px #3f425f;
+	border-color: #000;
+}
+input._error {
+	box-shadow: 0 0 25px #db7373;
+	border-color: #cc6060;
+}
+
+.pointer-border {
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	border: #04d9ff solid 2px;
+	border-radius: 9px;
+	box-shadow: 0 0 25px #04d9ff;
+	z-index: 5;
+	transition: all 0.5s ease 0s;
+}
+.pointer-border._focus-card-number {
+	opacity: 1;
+	transition: all 0.5s ease 0s;
+	top: 140px;
+	left: 25px;
+	width: 400px;
+	height: 50px;
+}
+.pointer-border._focus-card-valid-thru {
+	opacity: 1;
+	transition: all 0.5s ease 0s;
+	top: 200px;
+	left: 305px;
+	width: 95px;
+	height: 50px;
+}
+.pointer-border._focus-card-cvc {
+	opacity: 1;
+	transition: all 0.5s ease 0s;
+	top: 80px;
+	left: 40px;
+	width: 60px;
+	height: 50px;
+}
+
+/////////////////////////////////////////////////
+@keyframes crystal {
+	0%, 100%{
+		bottom: -78px;
+		left: -92px;
+		transform: rotate(-153deg);
+	}
+	25% {
+		bottom: -82px;
+		left: -88px;
+		transform: rotate(-155deg);
+	}
+	50% {
+		bottom: -82px;
+		left: -92px;
+		transform: rotate(-157deg);
+	}
+	75% {
+		bottom: -78px;
+		left: -88px;
+		transform: rotate(-155deg);
+	}
+}
+
+@keyframes effect_dylan {
+	50% {
+	  transform: scale(200, 200);
+	  opacity: 0;
+	}
+	99% {
+	  transform: scale(0.001, 0.001);
+	  opacity: 0;
+	}
+	100% {
+	  transform: scale(0.001, 0.001);
+	  opacity: 1;
+	}
+  }
+  

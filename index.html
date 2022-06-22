@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main-container">
+            <div class="card">
+                <div class="pointer-border"></div>
+                <div class="card__front">
+                    <div class="card__type">card type</div>
+                    <div class="card__bank-name">bank name</div>
+                    <div class="card__chip">
+                        <img src="img/chip.png" alt="chip" class="card__chip-image">
+                    </div>
+                    <div class="card__number">
+                        <span>####</span>
+                        <span>####</span>
+                        <span>####</span>
+                        <span>####</span>
+                    </div>
+                    <div class="card__valid-thru">
+                        <span>##</span>
+                        <span>/</span>
+                        <span>##</span>
+                    </div>
+                </div>
+                <div class="card__back">
+                    <div class="card__type">card type</div>
+                    <div class="card__line">
+                        <div class="card__cvc">###</div>
+                    </div>
+                    <div class="card__bank-name card__bank-name_back">bank name</div>
+                </div>
+            </div>
+            <form class="form" action="#">
+                <div class="form__container">
+                    <input type="text" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" placeholder="#### #### #### ####" class="form__card-number _req">
+                    <div class="form_flex">
+                        <div class="form__card-valid-thru">
+                            <input type="text" class="form__card-valid-thru_focus form__card-valid-thru_month _req" placeholder="mm">
+                            <span>/</span>
+                            <input type="text" class="form__card-valid-thru_focus form__card-valid-thru_year _req" placeholder="yy">
+                        </div> 
+                        <input type="text" class="form__card-cvc _req" placeholder="cvc">
+                    </div>
+                    <button type="submit" class="form__button">Pay</button>
+                </div>
+            </form>
+        </div>
+    </div>
+   
+    <script src="js/script.js"></script>
+</body>
+</html>
